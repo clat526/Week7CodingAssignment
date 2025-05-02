@@ -26,4 +26,19 @@ private ProjectDao projectdao = new ProjectDao();
 		      + "does not exist."));
 	}
 
+	public void modifyProjectDetails(Project project) {
+	  if(!projectdao.modifyProjectDetails(project)) {
+		throw new DbException("Project with ID="
+			+ project.getProjectId() + " does not exist.");
+	  }
+		
+	}
+
+	public void deleteProject(Integer projectId) {
+	  if(!projectdao.deleteProject(projectId)) {
+		throw new DbException("Project with ID=" + projectId + "does not exist.");
+	  }
+		
+	}
+
 }
